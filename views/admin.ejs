@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook Admin</title>
+
+  <script src="/js/guestbook.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
+  <link rel="icon" href="/images/contact-form-favicon.png" />
+
+  <link rel="stylesheet" href="/styles/styels.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+</head>
+<body>
+  <main clas="container">
+    <h1>Guestbook Admin</h1>
+    <p>All submitted contacts are shown below:</p>
+
+    <table id="contacts-table" class="display">
+      <thead>
+        <tr>
+          <th>First</th>
+          <th>Last</th>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Email</th>
+          <th>LinkedIn</th>
+          <th>Connection</th>
+          <th>Other</th>
+          <th>Messages</th>
+          <th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% contacts.forEach(contact => { %>
+          <tr>
+            <td><%= contact.fname %></td>
+            <td><%= contact.lname %></td>
+            <td><%= contact.jtitle %></td>
+            <td><%= contact.company %></td>
+            <td><%= contact.email %></td>
+            <td>
+              <% if (contact.linkedin) { %>
+                <a href="<%= contact.linkedin %>" target="_blank">LinkedIn</a>
+              <% } %>
+            </td>
+            <td><%= contact.connection %></td>
+            <td><%= contact.other %></td>
+            <td><%= contact.message %></td>
+            <td><%= contact.timestamp %></td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+
+    <br />
+    <a href="/" class="button">Back to form</a>
+  </main>
+
+  <script defer>
+    let table = new DataTable("#contacts-table")
+  </script>
+</body>
+</html>

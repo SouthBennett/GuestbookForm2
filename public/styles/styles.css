@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 40px;
+}
+
+.container {
+  background: white;
+  max-width: 800px;
+  margin: auto;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  gap: 20px 40px;
+}
+
+.personal-info label {
+  grid-column: span 1;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.personal-info input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.how-we-met {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.how-we-met label {
+  font-weight: bold;
+}
+
+.how-we-met select,
+.how-we-met input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.message-box label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.message-box textarea {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  resize: vertical;
+}
+
+.options-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: flex-start;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #43a047;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .personal-info,
+  .how-we-met {
+    grid-template-columns: 1fr;
+  }
+}
