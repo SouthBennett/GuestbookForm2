@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h2>Thank you for signing my GuestBook!</h2>
-    <p>Messaged Recieved. Your submission</p>
+    <p>Messaged Recieved. Your submission below.</p>
     <hr>
 
     <section>
@@ -27,12 +27,18 @@
         </p>
       <% } %>
 
+      <!-- Connection Section -->
       <p><strong>Connection:</strong> <%= contact.connection %></p>
-
       <% if (contact.other) { %>
         <p><strong>Other (details):</strong> <%= contact.other %></p>
       <% } %>
 
+      <!-- Message Section -->
+      <p><strong>Message:</strong> <%- contact.message.replace(/\r?\n/g, '<br>') %></p>
+      
+
+      <!-- Timestamp Section -->
+      <p><strong>Submitted On:</strong> <%= contact.timestamp %></p>
     </section>
 
     </hr>
