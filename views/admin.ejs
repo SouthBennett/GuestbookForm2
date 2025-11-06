@@ -15,50 +15,75 @@
   <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 </head>
 <body>
-  <main clas="container">
+  <div class="container">
+    <!-- Main header for the admin page -->
     <h1>Guestbook Admin</h1>
     <p>All submitted contacts are shown below:</p>
 
-    <table id="contacts-table" class="display">
-      <thead>
-        <tr>
-          <th>First</th>
-          <th>Last</th>
-          <th>Job Title</th>
-          <th>Company</th>
-          <th>Email</th>
-          <th>LinkedIn</th>
-          <th>Connection</th>
-          <th>Other</th>
-          <th>Messages</th>
-          <th>Timestamp</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% contacts.forEach(contact => { %>
+    <!-- EJS conditional: check if there are any contacts -->
+    <% if (contacts.length > 0) { %>
+
+      <!-- Table to display all contact submisions -->
+      <table id="contacts-table" class="display">
+        <thead>
           <tr>
-            <td><%= contact.fname %></td>
-            <td><%= contact.lname %></td>
-            <td><%= contact.jtitle %></td>
-            <td><%= contact.company %></td>
-            <td><%= contact.email %></td>
-            <td>
-              <% if (contact.linkedin) { %>
-                <a href="<%= contact.linkedin %>" target="_blank">LinkedIn</a>
-              <% } %>
-            </td>
-            <td><%= contact.connection %></td>
-            <td><%= contact.other %></td>
-            <td><%= contact.message %></td>
-            <td><%= contact.timestamp %></td>
+            <!-- Table header row: labels for each column -->
+            <th>First</th>
+            <th>Last</th>
+            <th>Job Title</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>LinkedIn</th>
+            <th>Connection</th>
+            <th>Other</th>
+            <th>Messages</th>
+            <th>Timestamp</th>
           </tr>
+        </thead>
+        <tbody>
+          <!-- EJS loop: iterates through each contact object -->
+          <% contacts.forEach(contact => { %>
+            <tr>
+              <td><%= contact.fname %></td> <!-- First Name -->
+              <td><%= contact.lname %></td> <!-- Last Name -->
+              <td><%= contact.jtitle || "-" %></td> <!-- Job title, fallback dash if blank -->
+              <td><%= contact.company || "-" %></td> <!-- Company, fallback dash -->
+              <td><%= contact.email || "-" %></td> <!-- Email, fallback dash -->
+
+              <!-- LinkedIn link (only displays if the user provided one) -->
+              <td>
+                <% if (contact.linkedin) { %>
+                  <a href="<%= contact.linkedin %>" target="_blank">LinkedIn</a>
+                <% } else { %>
+                  - <!-- Fallback if LinkedIn URL is missing -->
+                <% } %>
+              </td>
+
+              <!-- How you met (School, Work, etc.) -->
+              <td><%= contact.connection || "-" %></td>
+
+              <!-- "Other" field (only used if user selected 'Other' on the form) -->
+              <td><%= contact.other || "-" %></td>
+
+              <!-- Message with perserved line breaks -->
+              <td><%- contact.message.replace(/\r?\n/g, '<br>') %></td>
+
+              <!-- Timestamp when the form was submitted -->
+              <td><%= contact.timestamp %></td>
+            </tr>
           <% }); %>
+          <!-- End of the contacts loop -->
       </tbody>
     </table>
+  <% } else {%>
+    <!-- Message displayed if there are no contacts in the array -->
+    <p><em>No contacts to display.</em></p>
+  <% } %>
 
-    <br />
+    <br>
+    <!-- Button link back to the contact form -->
     <a href="/" class="button">Back to form</a>
-  </main>
+  </div>
 
   <script defer>
     let table = new DataTable("#contacts-table")
