@@ -48,7 +48,7 @@ app.post("/submit", (req, res) => {
     connection: req.body.connection,
     other: req.body.other,
     message: req.body.message,
-    timestamp: new Date().toLocaleString(),
+    timestamp: new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"}),
   };
 
   // Push contact into the array
