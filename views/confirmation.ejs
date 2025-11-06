@@ -20,10 +20,17 @@
       <p><strong>Company:</strong> <%= contact.company || "-" %></p>
       <p><strong>Email:</strong> <%= contact.email || "-" %></p>
 
+      <!-- Linkedin Section -->
       <% if (contact.linkedin) { %>
         <p><strong>Linkedin:</strong>
           <a href="<%= contact.linkedin %>" target="_blank"><%= contact.linkedin %></a>
         </p>
+      <% } %>
+
+      <p><strong>Connection:</strong> <%= contact.connection %></p>
+
+      <% if (contact.other) { %>
+        <p><strong>Other (details):</strong> <%= contact.other %></p>
       <% } %>
 
     </section>
