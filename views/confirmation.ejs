@@ -9,14 +9,26 @@
 <body>
   <div class="container">
     <h2>Thank you for signing my GuestBook!</h2>
+    <p>Messaged Recieved. Your submission</p>
+    <hr>
 
-    <!-- Show the submitted data dynamically -->
-    <p><strong>First Name:</strong> <%= contact.fname %></p>
-    <p><strong>Last Name:</strong> <%= contact.lname %></p>
-    <p><strong>Email:</strong> <%= contact.email %></p>
-    <p><strong>Message:</strong> <%= contact.message %></p>
-    <p><strong>Submitted On:</strong> <%= contact.timestamp %></p>
+    <section>
+      <!-- Show the submitted data dynamically -->
+      <p><strong>First Name:</strong> <%= contact.fname %></p>
+      <p><strong>Last Name:</strong> <%= contact.lname %></p>
+      <p><strong>Job Title:</strong> <%= contact.jtitle || "-" %></p>
+      <p><strong>Company:</strong> <%= contact.company || "-" %></p>
+      <p><strong>Email:</strong> <%= contact.email || "-" %></p>
 
+      <% if (contact.linkedin) { %>
+        <p><strong>Linkedin:</strong>
+          <a href="<%= contact.linkedin %>" target="_blank"><%= contact.linkedin %></a>
+        </p>
+      <% } %>
+
+    </section>
+
+    </hr>
     <a href="/" class="button">Back to form</a>
   </div>
 </body>
