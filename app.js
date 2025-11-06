@@ -18,9 +18,13 @@ app.use(express.urlencoded({extended: true }));
 // Enable static file serving
 app.use(express.static('public'));
 
-// Define a default route
+// Define a default route - display resume (home page)
 app.get('/', (req, res) => {
   // res.sendFile(`${import.meta.dirname}/views/home.html`);
+  res.render('resume');
+});
+
+app.get("/contact", (req, res) => {
   res.render('home');
 });
 
