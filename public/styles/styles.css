@@ -7,7 +7,7 @@ body {
 
 .container {
   background: white;
-  max-width: 800px;
+  max-width: 1500px;
   margin: auto;
   padding: 30px 40px;
   border-radius: 8px;
@@ -145,6 +145,31 @@ button:hover {
 .navbar li a:hover {
   color: #4c8baf;
 }
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* keeps columns within the page length */
+  word-wrap: break-word;
+}
+th, td {
+  border: 1px sold #ccc;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: break-word; /* Handles text wrapping inside table cells */
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.container {
+  overflow-x: auto;
+}
+
 
 @media (max-width: 700px) {
   .personal-info,
