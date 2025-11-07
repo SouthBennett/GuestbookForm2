@@ -7,7 +7,7 @@ body {
 
 .container {
   background: white;
-  max-width: 1500px;
+  max-width: 1500px; 
   margin: auto;
   padding: 30px 40px;
   border-radius: 8px;
@@ -22,9 +22,8 @@ h2 {
 .personal-info {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
   gap: 20px 40px;
+  margin-bottom: 1.5rem;
 }
 
 .personal-info label {
@@ -119,11 +118,11 @@ button:hover {
   display: none;
 }
 
-/* Navbar styles */
+/*  NAVBAR STYLES  */
 .navbar {
-  background-color:#333;
+  background-color: #333;
   padding: 10px 0;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 .navbar ul {
@@ -135,7 +134,7 @@ button:hover {
   padding: 0;
 }
 
-.navbar li a{
+.navbar li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -146,19 +145,20 @@ button:hover {
   color: #4c8baf;
 }
 
-/* Table styles */
+/*  TABLE STYLES  */
 table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* keeps columns within the page length */
+  table-layout: fixed;
   word-wrap: break-word;
 }
+
 th, td {
-  border: 1px sold #ccc;
+  border: 1px solid #ccc; 
   padding: 8px;
   text-align: left;
   vertical-align: top;
-  overflow-wrap: break-word; /* Handles text wrapping inside table cells */
+  overflow-wrap: break-word;
 }
 
 th {
@@ -170,10 +170,44 @@ th {
   overflow-x: auto;
 }
 
-
+/*  RESPONSIVENESS for mobile devices  */
 @media (max-width: 768px) {
+  /* Stack form fields */
   .personal-info,
   .how-we-met {
     grid-template-columns: 1fr;
+  }
+
+  /* Stacks navbar vertically */
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .navbar li a {
+    display: block;
+    padding: 8px 0;
+  }
+
+  /* Scrollable table */
+  .container {
+    overflow-x: auto;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    min-width: 700px;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+
+  /* Resume iframe scales properly */
+  iframe {
+    width: 100%;
+    height: 85vh;
   }
 }
