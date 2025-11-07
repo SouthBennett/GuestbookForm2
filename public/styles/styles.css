@@ -171,7 +171,7 @@ th {
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .personal-info,
   .how-we-met {
     grid-template-columns: 1fr;
