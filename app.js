@@ -66,9 +66,9 @@ app.get('/db-test', async (req, res)=> {
     const [rows] = await pool.query("SELECT * FROM contacts");
     res.json(rows);
   } catch (err) {
-    res.statusCode(500).end("DB ERROR: " + err.message);
+    res.status(500).end("DB ERROR: " + err.message);
   }
-})
+});
 
 // Handle POST requests sent to the "/submit" route
 app.post("/submit", async (req, res) => {
